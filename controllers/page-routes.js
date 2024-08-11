@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 //home route
 router.get('/', (req,res) => {
-    
+    res.render('allPosts');
 });
 
  

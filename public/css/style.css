@@ -1,0 +1,28 @@
+:root{
+    --color1: #2C5F2D;
+    --color2: #97BC62FF;
+
+}
+
+body{
+    font-family: "Kanit", sans-serif;
+    background-color: var(--color2);
+}
+.badge{
+    margin: 0 auto;
+    border: 3px solid black;
+    border-radius: 4px;
+    box-shadow: .5rem .5rem 0 black;
+    color: var(--color1);
+    background-color: var(--color2);
+}
+header{
+    background-color: var(--color1);
+}
+html{
+    background-color: (var(--color2));
+}
+
+.nav-link{
+    color: var(--color2);
+}
