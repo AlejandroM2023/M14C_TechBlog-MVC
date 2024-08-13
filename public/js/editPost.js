@@ -1,8 +1,10 @@
 const posts = document.querySelectorAll('#post');
 const message = document.getElementById('error');
 
-function test(event){
+function edit(event){
     const post = event.target.parentElement.parentElement;
+    const redBtn = document.querySelector('.btn-danger');
+    redBtn.remove();
     event.target.remove();
 
     const title = post.children[0].innerText;
@@ -53,6 +55,22 @@ function test(event){
     })
 }
 
+deletePost = async (event) => {
+    const post = event.target.parentElement.parentElement;
+    const response = await fetch('/api/post',{
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            id: parseInt(post.dataset.postid),
+        })
+    });
+    if(response.ok){
+        document.location.reload();
+    }else{
+        message.innerHTML ='';
+            message.append('something went wrong :(');
+    }
+}
 
 window.onload = (event) => {
     for(const post of posts){
@@ -60,7 +78,16 @@ window.onload = (event) => {
         button.classList.add('btn');
         button.classList.add('editBtn');
         button.innerText ='Edit';
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('btn-danger');
+        deleteBtn.classList.add('btn');
+        deleteBtn.innerHTML= 'delete';
+
         post.children[0].append(button);
-        button.addEventListener('click',test);
+        post.children[0].append(deleteBtn);
+
+        button.addEventListener('click',edit);
+        deleteBtn.addEventListener('click',deletePost);
     }
  };

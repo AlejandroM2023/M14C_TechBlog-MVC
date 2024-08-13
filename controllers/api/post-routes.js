@@ -12,6 +12,17 @@ router.post('/', async (req,res) => {
     }
 });
 
+router.delete('/', async (req,res) => {
+    try{
+        const response = await Post.destroy({
+            where:{ id: req.body.id}
+        });
+        res.status(200).json({message: 'post deleted'});
+    }catch(err){
+        res.status(400).json(err);
+    }
+});
+
 router.post('/addcomment', async (req,res) => {
     try{
         req.body.author = req.session.userName;
