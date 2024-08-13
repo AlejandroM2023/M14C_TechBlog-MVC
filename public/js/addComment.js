@@ -45,6 +45,8 @@ function addComment() {
             if(response.ok){
                 message.innerHTML ='';
                 message.append('thanks for the comment');
+                card.remove();
+                document.location.reload();
             }else{
                 message.innerHTML ='';
                 message.append('something went wrong :(');
