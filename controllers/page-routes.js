@@ -23,7 +23,7 @@ router.get('/', async(req,res) => {
  
 
 //will display all posts by the user in their dashboard
-router.get('/posts/dashboard', async (req,res) => {
+router.get('/posts/dashboard', authenticate, async (req,res) => {
     try{
 
         const postData = await Post.findAll({

@@ -1,5 +1,5 @@
 <h1 class="text-center">Whats on your mind {{userName}}?</h1>
-<div>
+<div id="posts">
     {{#each posts as |post|}}
         {{> post}}
     {{/each}}
@@ -9,3 +9,6 @@
         <button id="addB" class="btn" type="button">+ Post</button>
     </div>
 </div>
+<div id="error"></div>
+<script src="/js/editPost.js"></script>
+<script src="/js/addPost.js"></script>

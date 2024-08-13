@@ -45,6 +45,10 @@ html{
     background-color: var(--color3);
     color: var(--color2);
 }
+.editBtn{
+    background-color: var(--color3);
+    color: var(--color2);
+}
 .submit{
     background-color: var(--color3);
     color: var(--color2);
