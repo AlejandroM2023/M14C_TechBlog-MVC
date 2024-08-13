@@ -1,6 +1,8 @@
 :root{
     --color1: #2C5F2D;
     --color2: #97BC62FF;
+    --color3: #5b3e31;
+
 
 }
 
@@ -24,5 +26,26 @@ html{
 }
 
 .nav-link{
+    color: var(--color2);
+}
+
+.card{
+    background-color: var(--color1);
+    color: var(--color2);
+}
+.card-body{
+    background-color: var(--color2);
+    color: var(--color1);
+}
+.card-title{
+    color: var(--color2);
+}
+
+#addB{
+    background-color: var(--color3);
+    color: var(--color2);
+}
+.submit{
+    background-color: var(--color3);
     color: var(--color2);
 }

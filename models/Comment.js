@@ -12,11 +12,6 @@ Comment.init(
             primaryKey: true,
             allowNull: false,
         },
-        date: {
-            type: DataTypes.DATEONLY,
-            defaultValue: Sequelize.NOW,
-            allowNull: false,
-        },
         content:{
             type: DataTypes.TEXT,
             allowNull: false,

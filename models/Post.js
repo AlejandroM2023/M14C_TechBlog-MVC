@@ -11,15 +11,9 @@ Post.init(
             autoIncrement: true,
             primaryKey: true
         },
-        date:{
-            type: DataTypes.DATEONLY,
-            allowNull: false,
-            defaultValue: Sequelize.NOW
-        },
         title:{
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue: Sequelize.NOW
         },
         content: {
             type: DataTypes.TEXT,
