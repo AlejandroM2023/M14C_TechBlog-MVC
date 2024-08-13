@@ -26,6 +26,31 @@ async function login(event) {
         messages1.innerHTML ='email or password is wrong'
     }
 }
+async function signup(event) {
+    event.preventDefault();
+    const email = document.getElementById('email-signup').value.trim();
+    const password = document.getElementById('password-signup').value.trim();
+    const username = document.getElementById('username-signup').value.trim();
+    if(email && password && username){
+        const response = await fetch('/api/user', {
+            method: 'POST',
+            body: JSON.stringify({ username, email, password }),
+            headers: { 'Content-Type': 'application/json' },
+          });
+        if(response.ok){
+            document.location.replace('/');
+        }else{
+            messages2.innerHTML ='';
+            messages2.innerHTML ='an account with an email already exists or password is too short'
+        }
 
 
-loginBtn.addEventListener('click',login)
+    }else{
+        messages2.innerHTML ='';
+        messages2.innerHTML ='make sure everything is filled out'
+    }
+}
+
+
+loginBtn.addEventListener('click',login);
+signupBtn.addEventListener('click', signup);

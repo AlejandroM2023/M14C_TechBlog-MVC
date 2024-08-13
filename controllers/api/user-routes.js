@@ -5,7 +5,19 @@ const {User} = require('../../models');
 
 //create a user and set logged in to true
 router.post('/', async (req,res) => {
-
+    try{
+        console.log(req.body);
+        const response = await User.create(req.body);
+        console.log(response);
+        req.session.save( () => {
+            req.session.loggedIn = true;
+            req.session.userName = response.dataValues.username;
+            req.session.userId = response.dataValues.id;
+            res.status(200).json({message: 'Welcome back!'});
+        });
+    }catch(err){
+        res.status(500).json(err);
+    }
 });
 
 
